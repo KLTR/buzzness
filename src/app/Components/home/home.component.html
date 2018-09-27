@@ -1,0 +1,92 @@
+<!-- Header with Background Image -->
+<header class="business-header" [ngStyle]="{'background-image': 'url(./assets/imgs/home.jpg)'}">
+  <div class="container flex center dir-col">
+    <div class="row">
+      <div class="col-sm-12 main-text ">
+        <h1 class="text-right mt-2">BuzzNess - קידום מקצועי למדיות החברתיות.</h1>
+        <p> קניית עוקבים, לייקים, תגובות וצפיות ממשתמשים אמיתיים באספקה מיידית</p>
+      </div>
+    </div>
+  </div>
+  <img id="insta-icon" src="../../../assets/imgs/insta-main.png">
+  <img id="facebook-icon" src="../../../assets//imgs/facebook-main.png">
+</header>
+
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="mt-4">איך זה עובד</h2>
+      <p>.הדרך המהירה ביותר לקניית עוקבים ולייקים, כל מה שצריך לעשות זה לבחור את כמות העוקבים / לייקים, למלא פרטים ותוך
+        כמספר דקות מרגע הרכישה השירות יצא לדרך,הרכישה דיסקרטית לחלוטין <strong>ללא צורך בסיסמא לחשבון</strong></p>
+    </div>
+  </div>
+  <!-- /.row -->
+  <div class="row">
+    <div class="col-sm-4 my-4">
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img class="card-img-top" src="../../../assets/imgs/instagram-icon.png" alt="">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title text-center">Instagram</h4>
+          <p class="card-text">קניית עוקבים, לייקים ותגובות לאינסטגרם - מהיר, פשוט וזול.</p>
+        </div>
+        <div class="card-footer">
+          <a [routerLink]="['/instagram']" class="btn btn-primary full-width">עוקבים לאינסטגרם</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 my-1">
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img class="card-img-top" src="../../../assets/imgs/facebook-icon.png" alt="">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title text-center">Facebook</h4>
+          <p class="card-text">קניית עוקבים, לייקים ותגובות לפייסבוק - מהיר, פשוט וזול.</p>
+        </div>
+        <div class="card-footer">
+          <a [routerLink]="['/facebook']" class="btn btn-primary full-width">חברים ולייקים בפייסבוק</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 my-1">
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img class="card-img-top" src="../../../assets/imgs/youtube-icon.png" alt="">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title text-center">Youtube</h4>
+          <p class="card-text">בקרוב
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary full-width">צפיות ותגובות ביוטיוב</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.row -->
+  <div class="col-sm-4 text-center">
+    <h2 class="mt-4">צור איתנו קשר</h2>
+    <address>
+      <strong>BuzzNess</strong>
+    </address>
+    <address>
+      <span title="Phone">
+        <i class="fa fa-phone" aria-hidden="true"></i>
+      </span>
+      052-8902988
+      בן
+      <br>
+      <span title="Email">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+      </span>
+      <a href="mailto:#">ben@buzz-ness.co.il</a>
+    </address>
+  </div>
+</div>
+<!-- /.container -->

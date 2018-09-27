@@ -1,0 +1,10 @@
+.wrapper {}
+
+.wrapper * {
+    color: white;
+}
+
+.wrapper button {
+    width: 100%;
+    background: transparent;
+}

@@ -1,0 +1,70 @@
+<div class="modal fade " id="checkout-modal" tabindex="-1" role="dialog" aria-labelledby="checkout-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content cart-wrapper">
+      <div class="modal-header bg-primary text-white text-center ltr">
+        <a type="button" class="btn btn-danger close-btn" (click)="toggleForm(false)" data-dismiss="modal" aria-label="Close"><i
+            class="fa fa-times"></i></a>
+        <h1 class="text-white">{{ !displayForm ? 'לתשלום' : 'הרשמה' }}</h1>
+      </div>
+      <div class="modal-body">
+        <ul *ngIf="products?.length > 0; else noProducts" class="products" [hidden]="displayForm ">
+          <li *ngFor="let product of products" [@itemAnim]="products.length" class="product">
+            <div class="product-info">
+              <span class="id"> {{product.name}} </span>
+              <span class="total">
+                <span>{{product.amount}} - כמות </span>
+                <span *ngIf="!product.sale"><i class="fa fa-ils"></i>{{product.amount * product.price | number}} - סה"כ</span>
+                <span *ngIf="product.sale"><i class="fa fa-ils"></i>{{product.price | number}} - סה"כ</span>
+              </span>
+              <span *ngIf="!product.sale" class="product-delete" (click)="deleteProduct(product, product.amount * product.price)"><i
+                  class="fa fa-times"></i></span>
+              <span *ngIf="product.sale" class="product-delete" (click)="deleteProduct(product, product.price)"><i
+                  class="fa fa-times"></i></span>
+              <span class="product-icon"><i class="fa fa-{{product.platform}}"></i></span>
+              <span *ngIf="product.sale" class="sale-icon">מבצע</span>
+            </div>
+          </li>
+        </ul>
+        <ng-template #noProducts>
+          <p>אין מוצרים</p>
+        </ng-template>
+        <form method="POST" action="https://formspree.io/levyroy1990@gmail.com" (ngSubmit)="onSubmit(userForm)" class="form-container"
+          [hidden]="!displayForm || submitted" #userForm="ngForm">
+          <div class="form-group">
+            <label for="name">שם</label>
+            <input name="name" type="text" class="form-control" required [(ngModel)]="user.name" #name="ngModel"
+              [ngClass]="name.valid ? 'valid' : 'invalid'">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+              שדה זה הוא חובה
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">אימייל</label>
+            <input name="email" type="text" class="form-control" [ngClass]="validateEmail() ? 'valid' : 'invalid'"
+              required [(ngModel)]="user.email" #email="ngModel">
+            <div [hidden]="email.pristine || validateEmail()" class="alert alert-danger">
+              נא הזן כתובת מייל תקנית
+            </div>
+          </div>
+          <!-- <input style="display: none" type="email" class="form-control" name="_replyto" value="user.email"> -->
+
+          <div class="form-group">
+            <label for="account">לינק לחשבון</label>
+            <input name="account" type="text" class="form-control" required [(ngModel)]="user.account" #account="ngModel"
+              [ngClass]="account.valid ? 'valid' : 'invalid'">
+            <div [hidden]="account.valid || account.pristine" class="alert alert-danger">
+              שדה זה הוא חובה
+            </div>
+          </div>
+          <input type="submit" [disabled]="!userForm.form.valid || !validateEmail()" class="btn btn-success" value="שלח">
+        </form>
+      </div>
+      <div *ngIf="products?.length> 0" class="modal-footer justify-center">
+        <button [hidden]="displayForm || submitted" type="button" (click)="toggleForm(true)" class="btn btn-info">עבור
+          לתשלום</button>
+        <app-paypal [hidden]="!submitted"></app-paypal>
+      </div>
+    </div>
+  </div>
+</div>

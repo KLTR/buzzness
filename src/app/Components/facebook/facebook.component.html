@@ -1,0 +1,150 @@
+<!-- Header with Background Image -->
+<header class="header platform">
+    <div class="container flex center dir-col mt-5">
+        <div class="row">
+            <div class="col-sm-4 flex center">
+                <img id="facebooklogo" src="../../assets/imgs/facebook-icon.png">
+            </div>
+            <div class="col-sm-8 flex dir-col">
+                <h1 class="text-center mt-2">שירות הקידום לפייסבוק</h1>
+                <p class="text-center mt-2">קניית עוקבים ולייקים בפייסבוק המגיעים ממשתמשים אמיתיים מחו"ל.
+                    <b>התשלום הינו מאובטח, והרכישה דיסקרטית לחלוטין</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+<hr class="mt-4">
+<div class="container shop-container">
+    <form action="" id="insta-form" class="row mx-0">
+        <div class="col-md-4 p-0">
+            <div class="pay-box mx-1">
+                <img class="facebook-icon" src="../../../assets/imgs/facebook-icon.png">
+                <div class="pay-box-header bg-info text-white">
+                    <p class="m-0 mr-2">
+                        <i class="fa fa-user-o"></i> קניית עוקבים לפייסבוק
+                    </p>
+                </div>
+                <div class="amount mt-4">
+                    <button class="btn btn-sm btn btn-outline-info ml-2" (click)="addAmount('follow','+')"><i class="fa fa-plus"></i></button>
+                    <input type="number" name="followAmount" [(ngModel)]="followAmount" class="amount-input form-control">
+                    <span *ngIf="followAmount > 0" [class.moveRight]="(followAmount > 999 && followAmount <= 9999)" [class.moveRightMore]="(followAmount > 9999)">עוקבים</span>
+                    <button class="btn btn-sm btn btn-outline-info mr-2" (click)="addAmount('follow','-')"><i class="fa fa-minus"></i></button>
+                </div>
+                <div class="info mt-auto mb-2">
+                    <p class="my-0 mr-2 text-center"> מחיר לעוקב : {{followPrice}} <i class="fa fa-ils"></i></p>
+                    <button type="button" class="btn btn-info" (click)="calcPrice('follow')">
+                        <i class="fa fa-shopping-cart"></i>
+              הוסף לסל {{followPrice * followAmount | number }}
+               <i class="fa fa-ils"></i>
+            </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 p-0">
+            <div class="pay-box mx-1">
+                <img class="facebook-icon" src="../../../assets/imgs/facebook-icon.png">
+                <div class="pay-box-header bg-info text-white">
+                    <p class="m-0 mr-2">
+                        <i class="fa fa-heart-o"></i> קניית לייקים לפייסבוק
+                    </p>
+                </div>
+                <div class="amount mt-4">
+                    <button class="btn btn-sm btn btn-outline-info ml-2" (click)="addAmount('like','+')"><i class="fa fa-plus"></i></button>
+                    <input type="number" name="likeAmount" [(ngModel)]="likeAmount" class="amount-input form-control">
+                    <span *ngIf="likeAmount > 0" [class.moveRight]="(likeAmount > 999 && likeAmount <= 9999)" [class.moveRightMore]="(likeAmount > 9999)">לייקים</span>
+                    <button class="btn btn-sm btn btn-outline-info mr-2" (click)="addAmount('like','-')"><i class="fa fa-minus"></i></button>
+                </div>
+                <div class="info mt-auto mb-2">
+                    <p class="my-0 mr-2 text-center"> מחיר ללייק : {{likePrice}} <i class="fa fa-ils "></i></p>
+                    <button type="button " class="btn btn-info " (click)="calcPrice( 'like') ">
+                    <i class="fa fa-shopping-cart "></i>
+          הוסף לסל {{likePrice * likeAmount | number}}
+           <i class="fa fa-ils "></i>
+        </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 p-0">
+            <div class="pay-box mx-1 ">
+                <img class="facebook-icon" src="../../../assets/imgs/facebook-icon.png">
+                <div class="pay-box-header bg-info text-white ">
+                    <p class="m-0 mr-2 ">
+                        <i class="fa fa-comment-o "></i> קניית תגובות לפייסבוק
+                    </p>
+                </div>
+                <div class="amount mt-4 ">
+                    <button class="btn btn-sm btn btn-outline-info ml-2 " (click)="addAmount( 'comment', '+') "><i class="fa fa-plus "></i></button>
+                    <input type="number " name="commentAmount " [(ngModel)]="commentAmount " class="amount-input form-control ">
+                    <span *ngIf="commentAmount> 0" [class.moveRight]="(commentAmount > 999 && commentAmount <= 9999)" [class.moveRightMore]="(commentAmount> 9999)">לייקים</span>
+                    <button class="btn btn-sm btn btn-outline-info mr-2" (click)="addAmount('comment','-')"><i class="fa fa-minus"></i></button>
+                </div>
+                <div class="info mt-auto mb-2">
+                    <p class="my-0 mr-2 text-center"> מחיר לתגובה : {{commentPrice}} <i class="fa fa-ils "></i></p>
+                    <button type="button" class="btn btn-info" (click)="calcPrice( 'comment') ">
+                    <i class="fa fa-shopping-cart "></i>
+          הוסף לסל {{commentPrice * commentAmount | number}}
+           <i class="fa fa-ils "></i>
+        </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 p-0">
+            <div class="pay-box mx-1">
+                <img class="facebook-icon" src="../../../assets/imgs/facebook-icon.png">
+                <div class="pay-box-header bg-info text-white">
+                    <p class="m-0 mr-2">
+                        <i class="fa fa-gift"></i> מבצע תגובות לפייסבוק
+                        <span class="sale-icon">מבצע</span>
+                    </p>
+                </div>
+                <div class="amount mt-4">
+                    <select class="select-sale form-control" [(ngModel)]="commentSale" name="commentSale">
+                        <option value="" disabled selected="true">--- בחר מבצע ---</option>
+                        <option *ngFor="let sale of commentSales" [ngValue]="sale" >{{sale.amount}} תגובות - {{sale.price}}₪</option>
+                      </select>
+                </div>
+                <div class="info mt-auto mb-2">
+                    <p class="my-0 mr-2 text-center"> מחיר לתגובה : {{commentSale.amount / commentSale.price | number}} <i class="fa fa-ils"></i></p>
+                    <button type="button" class="btn btn-info" (click)="calcPrice('comment-sale')">
+                    <i class="fa fa-shopping-cart"></i>
+          הוסף לסל {{commentSale.price | number}}
+           <i class="fa fa-ils"></i>
+        </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 p-0">
+            <div class="pay-box mx-1">
+                <img class="facebook-icon" src="../../../assets/imgs/facebook-icon.png">
+                <div class="pay-box-header bg-info text-white">
+                    <p class="m-0 mr-2">
+                        <i class="fa fa-gift"></i> מבצע לייקים לפייסבוק
+                        <span class="sale-icon">מבצע</span>
+                    </p>
+                </div>
+                <div class="amount mt-4">
+                    <select class="select-sale form-control" [(ngModel)]="likeSale" name="likeSale">
+                        <option value="" disabled selected="true">--- בחר מבצע ---</option>
+                        <option *ngFor="let sale of likeSales" [ngValue]="sale" >{{sale.amount}} לייקים - {{sale.price}}₪</option>
+                      </select>
+                </div>
+                <div class="info mt-auto mb-2">
+                    <p class="my-0 mr-2 text-center"> מחיר ללייק : {{likeSale.amount / likeSale.price | number}} <i class="fa fa-ils"></i></p>
+                    <button type="button" class="btn btn-info" (click)="calcPrice('like-sale')">
+                    <i class="fa fa-shopping-cart"></i>
+          הוסף לסל {{likeSale.price | number}}
+           <i class="fa fa-ils"></i>
+        </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- form -->
+
+    <!-- row -->
+</div>
+<!-- /.container -->
+
+<!-- Footer -->

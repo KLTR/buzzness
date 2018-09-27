@@ -1,0 +1,13 @@
+<div class="row wrapper">
+    <div class="col-sm-6">
+        <div *ngIf="title" [class]="options.titleClass" [attr.aria-label]="title">
+            {{ title }}
+        </div>
+        <div *ngIf="message && !options.enableHtml" role="alert" aria-live="polite" [class]="options.messageClass" [attr.aria-label]="message">
+            {{ message }}
+            <button class="btn btn-small"><a data-toggle="modal" data-target="#checkout-modal">עבור לעגלה <i class="fa fa-shopping-cart fa-3x"></i></a></button>
+        </div>
+    </div>
+</div>
+
+<app-cart></app-cart>
